@@ -58,6 +58,7 @@ def pattern_check(password):
     return password 
 
 def complex_check(password):
+    allowed_symbols = ["!", "£", "$", "%", "&", "*", "-", "_"]
     upper_count = 0
     lower_count = 0
     symbol_count = 0
@@ -74,7 +75,11 @@ def complex_check(password):
             number_count += 1
 
         elif not s.isalnum():
-            symbol_count += 1
+            symbol = s 
+            if symbol not in allowed_symbols:
+                print("Invaild symbol")
+            else:
+                symbol_count += 1
 
     if upper_count <= 0:
         print("Your password contains no uppercases")
@@ -102,7 +107,6 @@ def main():
     running = True
     while running:
         show_info()
-        username = str(input("Enter your username: "))
         pwd = str(input("Enter your password: "))
         print("Checking your input...")
 

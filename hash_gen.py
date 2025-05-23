@@ -19,7 +19,7 @@ def save_to_json(hashed_password, filename="hashed_passwords.json"):
         data = {}
     
     data[hashed_password] =  f"created at: {datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")}"
-
+    
     with open(filename, "w") as f:
         json.dump(data, f, indent=4)
 
